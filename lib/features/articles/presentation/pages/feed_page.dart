@@ -92,9 +92,8 @@ class _FeedPageViewState extends State<_FeedPageView> {
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton.icon(
-                      onPressed: () => context
-                          .read<ArticlesCubit>()
-                          .loadArticles(),
+                      onPressed: () =>
+                          context.read<ArticlesCubit>().loadArticles(),
                       icon: const Icon(Icons.refresh),
                       label: const Text('Retry'),
                     ),
@@ -127,8 +126,8 @@ class _FeedPageViewState extends State<_FeedPageView> {
                           Chip(
                             label: const Text('Mock API'),
                             avatar: const Icon(Icons.cloud_off, size: 14),
-                            backgroundColor:
-                                theme.colorScheme.secondary.withValues(alpha: 0.1),
+                            backgroundColor: theme.colorScheme.secondary
+                                .withValues(alpha: 0.1),
                             labelStyle: TextStyle(
                               color: theme.colorScheme.secondary,
                               fontSize: 12,

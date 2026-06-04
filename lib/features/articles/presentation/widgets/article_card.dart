@@ -61,9 +61,8 @@ class _ArticleCardContent extends StatelessWidget {
               child: BlocBuilder<SaveArticleCubit, SaveArticleState>(
                 builder: (context, state) => _SaveButton(
                   state: state,
-                  onTap: () => context
-                      .read<SaveArticleCubit>()
-                      .saveArticle(article.id),
+                  onTap: () =>
+                      context.read<SaveArticleCubit>().saveArticle(article.id),
                   onUnsave: () => context
                       .read<SaveArticleCubit>()
                       .unsaveArticle(article.id),
@@ -82,7 +81,11 @@ class _SaveButton extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onUnsave;
 
-  const _SaveButton({required this.state, required this.onTap, required this.onUnsave});
+  const _SaveButton({
+    required this.state,
+    required this.onTap,
+    required this.onUnsave,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -102,10 +105,7 @@ class _SaveButton extends StatelessWidget {
         children: [
           Icon(Icons.bookmark, size: 18, color: theme.colorScheme.primary),
           const SizedBox(width: 4),
-          Text(
-            'Saved',
-            style: TextStyle(color: theme.colorScheme.primary),
-          ),
+          Text('Saved', style: TextStyle(color: theme.colorScheme.primary)),
           const SizedBox(width: 8),
           TextButton.icon(
             onPressed: onUnsave,

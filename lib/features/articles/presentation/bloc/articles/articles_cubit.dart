@@ -7,7 +7,7 @@ class ArticlesCubit extends Cubit<ArticlesState> {
   final GetArticlesUseCase getArticlesUseCase;
 
   ArticlesCubit({required this.getArticlesUseCase})
-      : super(const ArticlesInitial());
+    : super(const ArticlesInitial());
 
   Future<void> loadArticles() async {
     emit(const ArticlesLoading());

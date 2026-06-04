@@ -20,13 +20,17 @@ Future<void> setupDependencies() async {
 
   // Repository
   sl.registerLazySingleton<ArticlesRepository>(
-    () => ArticlesRepositoryImpl(remoteDataSource: sl<ArticlesRemoteDataSource>()),
+    () => ArticlesRepositoryImpl(
+      remoteDataSource: sl<ArticlesRemoteDataSource>(),
+    ),
   );
 
   // Use Cases
   sl.registerLazySingleton(() => GetArticlesUseCase(sl<ArticlesRepository>()));
   sl.registerLazySingleton(() => SaveArticleUseCase(sl<ArticlesRepository>()));
-  sl.registerLazySingleton(() => UnsaveArticleUseCase(sl<ArticlesRepository>()));
+  sl.registerLazySingleton(
+    () => UnsaveArticleUseCase(sl<ArticlesRepository>()),
+  );
 
   // Cubits (factory — new instance per creation)
   sl.registerFactory<ArticlesCubit>(
